@@ -22,11 +22,15 @@ Partial Class ManageRooms
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
         txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
         dgRooms = New Guna.UI2.WinForms.Guna2DataGridView()
         colEdit = New DataGridViewTextBoxColumn()
@@ -36,14 +40,14 @@ Partial Class ManageRooms
         colPrice = New DataGridViewTextBoxColumn()
         colDelete = New DataGridViewTextBoxColumn()
         lblCount = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        btnAdd = New PrimaryButton()
+        btnAdd = New Guna.UI2.WinForms.Guna2Button()
         CType(dgRooms, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' txtSearch
         ' 
         txtSearch.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        txtSearch.CustomizableEdges = CustomizableEdges3
+        txtSearch.CustomizableEdges = CustomizableEdges1
         txtSearch.DefaultText = ""
         txtSearch.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txtSearch.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -57,7 +61,7 @@ Partial Class ManageRooms
         txtSearch.PasswordChar = ChrW(0)
         txtSearch.PlaceholderText = "Search Rooms..."
         txtSearch.SelectedText = ""
-        txtSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        txtSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         txtSearch.Size = New Size(644, 36)
         txtSearch.TabIndex = 0
         ' 
@@ -67,28 +71,29 @@ Partial Class ManageRooms
         dgRooms.AllowUserToDeleteRows = False
         dgRooms.AllowUserToResizeColumns = False
         dgRooms.AllowUserToResizeRows = False
-        DataGridViewCellStyle4.BackColor = Color.White
-        dgRooms.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.BackColor = Color.White
+        dgRooms.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         dgRooms.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = Theme.PrimaryColor
-        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle5.ForeColor = Color.White
-        DataGridViewCellStyle5.SelectionBackColor = Color.DarkViolet
-        DataGridViewCellStyle5.SelectionForeColor = Color.White
-        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
-        dgRooms.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        dgRooms.BorderStyle = BorderStyle.FixedSingle
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = Color.Fuchsia
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle2.ForeColor = Color.White
+        DataGridViewCellStyle2.SelectionBackColor = Color.Fuchsia
+        DataGridViewCellStyle2.SelectionForeColor = Color.White
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
+        dgRooms.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         dgRooms.ColumnHeadersHeight = 30
         dgRooms.Columns.AddRange(New DataGridViewColumn() {colEdit, colID, colName, colType, colPrice, colDelete})
-        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = Color.White
-        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle6.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        DataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        DataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.False
-        dgRooms.DefaultCellStyle = DataGridViewCellStyle6
-        dgRooms.GridColor = Color.Black
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = Color.White
+        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle5.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        DataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.False
+        dgRooms.DefaultCellStyle = DataGridViewCellStyle5
+        dgRooms.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgRooms.Location = New Point(3, 45)
         dgRooms.Name = "dgRooms"
         dgRooms.RowHeadersVisible = False
@@ -100,10 +105,10 @@ Partial Class ManageRooms
         dgRooms.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty
         dgRooms.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
         dgRooms.ThemeStyle.BackColor = Color.White
-        dgRooms.ThemeStyle.GridColor = Color.Black
+        dgRooms.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgRooms.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
         dgRooms.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
-        dgRooms.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
+        dgRooms.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         dgRooms.ThemeStyle.HeaderStyle.ForeColor = Color.White
         dgRooms.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         dgRooms.ThemeStyle.HeaderStyle.Height = 30
@@ -149,6 +154,8 @@ Partial Class ManageRooms
         ' 
         ' colPrice
         ' 
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleRight
+        colPrice.DefaultCellStyle = DataGridViewCellStyle3
         colPrice.DividerWidth = 1
         colPrice.HeaderText = "Price"
         colPrice.Name = "colPrice"
@@ -157,6 +164,8 @@ Partial Class ManageRooms
         ' colDelete
         ' 
         colDelete.AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
+        colDelete.DefaultCellStyle = DataGridViewCellStyle4
         colDelete.HeaderText = "Delete"
         colDelete.Name = "colDelete"
         colDelete.ReadOnly = True
@@ -176,11 +185,21 @@ Partial Class ManageRooms
         ' btnAdd
         ' 
         btnAdd.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        btnAdd.BackColor = Color.Transparent
+        btnAdd.BorderRadius = 10
+        btnAdd.CustomizableEdges = CustomizableEdges3
+        btnAdd.DisabledState.BorderColor = Color.DarkGray
+        btnAdd.DisabledState.CustomBorderColor = Color.DarkGray
+        btnAdd.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnAdd.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnAdd.FillColor = Color.Fuchsia
+        btnAdd.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnAdd.ForeColor = Color.White
         btnAdd.Location = New Point(653, 3)
         btnAdd.Name = "btnAdd"
+        btnAdd.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         btnAdd.Size = New Size(93, 36)
-        btnAdd.TabIndex = 4
+        btnAdd.TabIndex = 7
+        btnAdd.Text = "Add Room"
         ' 
         ' ManageRooms
         ' 
@@ -200,12 +219,12 @@ Partial Class ManageRooms
     Friend WithEvents txtSearch As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents dgRooms As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents lblCount As Guna.UI2.WinForms.Guna2HtmlLabel
+    Public WithEvents btnAdd As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents colEdit As DataGridViewTextBoxColumn
     Friend WithEvents colID As DataGridViewTextBoxColumn
     Friend WithEvents colName As DataGridViewTextBoxColumn
     Friend WithEvents colType As DataGridViewTextBoxColumn
     Friend WithEvents colPrice As DataGridViewTextBoxColumn
     Friend WithEvents colDelete As DataGridViewTextBoxColumn
-    Friend WithEvents btnAdd As PrimaryButton
 
 End Class

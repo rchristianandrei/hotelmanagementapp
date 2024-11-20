@@ -1,3 +1,3 @@
 ﻿Module Theme
-    ReadOnly Property PrimaryColor = Color.DarkViolet
+    ReadOnly Property PrimaryColor = Color.Fuchsia
 End Module

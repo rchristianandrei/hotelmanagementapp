@@ -77,12 +77,12 @@ Partial Class Form1
         ctmTab.RenderStyle.SelectionForeColor = Color.White
         ctmTab.RenderStyle.SeparatorColor = Color.Gainsboro
         ctmTab.RenderStyle.TextRenderingHint = Drawing.Text.TextRenderingHint.SystemDefault
-        ctmTab.Size = New Size(181, 48)
+        ctmTab.Size = New Size(146, 26)
         ' 
         ' miCloseTab
         ' 
         miCloseTab.Name = "miCloseTab"
-        miCloseTab.Size = New Size(180, 22)
+        miCloseTab.Size = New Size(145, 22)
         miCloseTab.Text = "Close Feature"
         ' 
         ' Form1
@@ -94,6 +94,7 @@ Partial Class Form1
         Controls.Add(msSystemAdmin)
         MainMenuStrip = msSystemAdmin
         Name = "Form1"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Hotmap"
         msSystemAdmin.ResumeLayout(False)
         msSystemAdmin.PerformLayout()

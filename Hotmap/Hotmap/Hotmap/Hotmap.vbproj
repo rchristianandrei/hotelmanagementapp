@@ -16,6 +16,8 @@
 
   <ItemGroup>
     <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.6" />
+    <PackageReference Include="MySql.Data" Version="9.1.0" />
+    <PackageReference Include="System.Text.Json" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +26,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
+    <Compile Update="My Project\Settings.Designer.vb">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -31,10 +38,16 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Update="My Project\Settings.settings">
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Controls\" />
+    <Folder Include="UserControls\" />
   </ItemGroup>
 
 </Project>

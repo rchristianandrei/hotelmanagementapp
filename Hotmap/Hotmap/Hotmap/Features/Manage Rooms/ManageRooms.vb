@@ -8,7 +8,7 @@
 #End Region
 
 #Region "Event Handlers"
-    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+    Private Sub btnAdd_Click() Handles btnAdd.Click
         RaiseEvent Popup(True)
 
         Dim addRoom As New AddRoom

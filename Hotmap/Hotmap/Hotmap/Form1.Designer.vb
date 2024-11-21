@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         msSystemAdmin = New MenuStrip()
+        miCheckInOut = New ToolStripMenuItem()
         SystemAdminToolStripMenuItem = New ToolStripMenuItem()
         miManageRooms = New ToolStripMenuItem()
         tcArea = New TabControl()
@@ -34,12 +35,18 @@ Partial Class Form1
         ' 
         ' msSystemAdmin
         ' 
-        msSystemAdmin.Items.AddRange(New ToolStripItem() {SystemAdminToolStripMenuItem})
+        msSystemAdmin.Items.AddRange(New ToolStripItem() {miCheckInOut, SystemAdminToolStripMenuItem})
         msSystemAdmin.Location = New Point(0, 0)
         msSystemAdmin.Name = "msSystemAdmin"
         msSystemAdmin.Size = New Size(800, 24)
         msSystemAdmin.TabIndex = 0
         msSystemAdmin.Text = "MenuStrip1"
+        ' 
+        ' miCheckInOut
+        ' 
+        miCheckInOut.Name = "miCheckInOut"
+        miCheckInOut.Size = New Size(90, 20)
+        miCheckInOut.Text = "Check In/Out"
         ' 
         ' SystemAdminToolStripMenuItem
         ' 
@@ -109,5 +116,6 @@ Partial Class Form1
     Friend WithEvents tcArea As TabControl
     Friend WithEvents ctmTab As Guna.UI2.WinForms.Guna2ContextMenuStrip
     Friend WithEvents miCloseTab As ToolStripMenuItem
+    Friend WithEvents miCheckInOut As ToolStripMenuItem
 
 End Class

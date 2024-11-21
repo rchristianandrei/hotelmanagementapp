@@ -75,7 +75,7 @@
                 Dim room = kvp.Item1
                 Dim time = kvp.Item2
                 Me.rooms.Add(room.ID, room)
-                Me.dgRooms.Rows.Add("🖊️", room.ID, room.Name, room.Type, room.Price, "❌")
+                Me.dgRooms.Rows.Add("🖊️", room.ID, room.Name, room.Type, String.Format("{0:F2}", room.Price), "❌")
             Next
 
             Me.lblCount.Text = $"Count: <b>{Me.dgRooms.RowCount}</b>"

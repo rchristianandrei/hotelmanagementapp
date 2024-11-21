@@ -22,16 +22,13 @@ Partial Class ManageRooms
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         dgRooms = New Guna.UI2.WinForms.Guna2DataGridView()
         colEdit = New DataGridViewTextBoxColumn()
         colID = New DataGridViewTextBoxColumn()
@@ -41,29 +38,9 @@ Partial Class ManageRooms
         colDelete = New DataGridViewTextBoxColumn()
         lblCount = New Guna.UI2.WinForms.Guna2HtmlLabel()
         btnAdd = New Guna.UI2.WinForms.Guna2Button()
+        txtSearch = New SearchField()
         CType(dgRooms, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
-        ' 
-        ' txtSearch
-        ' 
-        txtSearch.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        txtSearch.CustomizableEdges = CustomizableEdges1
-        txtSearch.DefaultText = ""
-        txtSearch.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        txtSearch.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        txtSearch.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txtSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txtSearch.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txtSearch.Font = New Font("Segoe UI", 9F)
-        txtSearch.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txtSearch.Location = New Point(3, 3)
-        txtSearch.Name = "txtSearch"
-        txtSearch.PasswordChar = ChrW(0)
-        txtSearch.PlaceholderText = "Search Rooms..."
-        txtSearch.SelectedText = ""
-        txtSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        txtSearch.Size = New Size(644, 36)
-        txtSearch.TabIndex = 0
         ' 
         ' dgRooms
         ' 
@@ -186,7 +163,7 @@ Partial Class ManageRooms
         ' 
         btnAdd.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         btnAdd.BorderRadius = 10
-        btnAdd.CustomizableEdges = CustomizableEdges3
+        btnAdd.CustomizableEdges = CustomizableEdges1
         btnAdd.DisabledState.BorderColor = Color.DarkGray
         btnAdd.DisabledState.CustomBorderColor = Color.DarkGray
         btnAdd.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -196,27 +173,35 @@ Partial Class ManageRooms
         btnAdd.ForeColor = Color.White
         btnAdd.Location = New Point(653, 3)
         btnAdd.Name = "btnAdd"
-        btnAdd.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        btnAdd.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         btnAdd.Size = New Size(93, 36)
         btnAdd.TabIndex = 7
         btnAdd.Text = "Add Room"
+        ' 
+        ' txtSearch
+        ' 
+        txtSearch.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        txtSearch.BackColor = Color.Transparent
+        txtSearch.Location = New Point(3, 3)
+        txtSearch.Name = "txtSearch"
+        txtSearch.Placeholder = "Search Rooms..."
+        txtSearch.Size = New Size(644, 36)
+        txtSearch.TabIndex = 8
         ' 
         ' ManageRooms
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        Controls.Add(txtSearch)
         Controls.Add(btnAdd)
         Controls.Add(lblCount)
         Controls.Add(dgRooms)
-        Controls.Add(txtSearch)
         Name = "ManageRooms"
         Size = New Size(749, 549)
         CType(dgRooms, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
-
-    Friend WithEvents txtSearch As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents dgRooms As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents lblCount As Guna.UI2.WinForms.Guna2HtmlLabel
     Public WithEvents btnAdd As Guna.UI2.WinForms.Guna2Button
@@ -226,5 +211,6 @@ Partial Class ManageRooms
     Friend WithEvents colType As DataGridViewTextBoxColumn
     Friend WithEvents colPrice As DataGridViewTextBoxColumn
     Friend WithEvents colDelete As DataGridViewTextBoxColumn
+    Friend WithEvents txtSearch As SearchField
 
 End Class

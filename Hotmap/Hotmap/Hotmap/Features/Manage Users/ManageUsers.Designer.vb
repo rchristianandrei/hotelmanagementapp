@@ -27,8 +27,6 @@ Partial Class ManageUsers
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
@@ -36,7 +34,6 @@ Partial Class ManageUsers
         btnAdd = New Guna.UI2.WinForms.Guna2Button()
         lblCount = New Guna.UI2.WinForms.Guna2HtmlLabel()
         dgUsers = New Guna.UI2.WinForms.Guna2DataGridView()
-        txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
         colEdit = New DataGridViewTextBoxColumn()
         colEmployeeId = New DataGridViewTextBoxColumn()
         colFirstName = New DataGridViewTextBoxColumn()
@@ -44,6 +41,7 @@ Partial Class ManageUsers
         colHireDate = New DataGridViewTextBoxColumn()
         colDateTimeAdded = New DataGridViewTextBoxColumn()
         colDelete = New DataGridViewTextBoxColumn()
+        txtSearch = New SearchField()
         CType(dgUsers, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -132,27 +130,6 @@ Partial Class ManageUsers
         dgUsers.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgUsers.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         ' 
-        ' txtSearch
-        ' 
-        txtSearch.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        txtSearch.CustomizableEdges = CustomizableEdges3
-        txtSearch.DefaultText = ""
-        txtSearch.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        txtSearch.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        txtSearch.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txtSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txtSearch.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txtSearch.Font = New Font("Segoe UI", 9F)
-        txtSearch.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txtSearch.Location = New Point(3, 3)
-        txtSearch.Name = "txtSearch"
-        txtSearch.PasswordChar = ChrW(0)
-        txtSearch.PlaceholderText = "Search Users..."
-        txtSearch.SelectedText = ""
-        txtSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges4
-        txtSearch.Size = New Size(644, 36)
-        txtSearch.TabIndex = 8
-        ' 
         ' colEdit
         ' 
         colEdit.AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -219,14 +196,24 @@ Partial Class ManageUsers
         colDelete.ReadOnly = True
         colDelete.Width = 50
         ' 
+        ' txtSearch
+        ' 
+        txtSearch.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        txtSearch.BackColor = Color.Transparent
+        txtSearch.Location = New Point(3, 3)
+        txtSearch.Name = "txtSearch"
+        txtSearch.Placeholder = "Search Users..."
+        txtSearch.Size = New Size(644, 36)
+        txtSearch.TabIndex = 12
+        ' 
         ' ManageUsers
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        Controls.Add(txtSearch)
         Controls.Add(btnAdd)
         Controls.Add(lblCount)
         Controls.Add(dgUsers)
-        Controls.Add(txtSearch)
         Name = "ManageUsers"
         Size = New Size(749, 549)
         CType(dgUsers, ComponentModel.ISupportInitialize).EndInit()
@@ -237,7 +224,6 @@ Partial Class ManageUsers
     Public WithEvents btnAdd As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents lblCount As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents dgUsers As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents txtSearch As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents colEdit As DataGridViewTextBoxColumn
     Friend WithEvents colEmployeeId As DataGridViewTextBoxColumn
     Friend WithEvents colFirstName As DataGridViewTextBoxColumn
@@ -245,5 +231,6 @@ Partial Class ManageUsers
     Friend WithEvents colHireDate As DataGridViewTextBoxColumn
     Friend WithEvents colDateTimeAdded As DataGridViewTextBoxColumn
     Friend WithEvents colDelete As DataGridViewTextBoxColumn
+    Friend WithEvents txtSearch As SearchField
 
 End Class

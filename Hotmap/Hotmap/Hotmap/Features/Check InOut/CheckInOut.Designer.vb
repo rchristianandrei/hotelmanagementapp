@@ -22,13 +22,10 @@ Partial Class CheckInOut
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
         dgRooms = New Guna.UI2.WinForms.Guna2DataGridView()
         colAction = New DataGridViewTextBoxColumn()
         colID = New DataGridViewTextBoxColumn()
@@ -38,29 +35,9 @@ Partial Class CheckInOut
         colCheckIn = New DataGridViewTextBoxColumn()
         colCheckOut = New DataGridViewTextBoxColumn()
         lblCount = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        SearchField1 = New SearchField()
         CType(dgRooms, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
-        ' 
-        ' txtSearch
-        ' 
-        txtSearch.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        txtSearch.CustomizableEdges = CustomizableEdges1
-        txtSearch.DefaultText = ""
-        txtSearch.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        txtSearch.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        txtSearch.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txtSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        txtSearch.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txtSearch.Font = New Font("Segoe UI", 9F)
-        txtSearch.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        txtSearch.Location = New Point(3, 3)
-        txtSearch.Name = "txtSearch"
-        txtSearch.PasswordChar = ChrW(0)
-        txtSearch.PlaceholderText = "Search Rooms..."
-        txtSearch.SelectedText = ""
-        txtSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        txtSearch.Size = New Size(983, 36)
-        txtSearch.TabIndex = 1
         ' 
         ' dgRooms
         ' 
@@ -180,21 +157,29 @@ Partial Class CheckInOut
         lblCount.TabIndex = 4
         lblCount.Text = "Count: <b>0</b>"
         ' 
+        ' SearchField1
+        ' 
+        SearchField1.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        SearchField1.BackColor = Color.Transparent
+        SearchField1.Location = New Point(3, 3)
+        SearchField1.Name = "SearchField1"
+        SearchField1.Placeholder = "Search Rooms..."
+        SearchField1.Size = New Size(983, 36)
+        SearchField1.TabIndex = 5
+        ' 
         ' CheckInOut
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        Controls.Add(SearchField1)
         Controls.Add(lblCount)
         Controls.Add(dgRooms)
-        Controls.Add(txtSearch)
         Name = "CheckInOut"
         Size = New Size(989, 643)
         CType(dgRooms, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
-
-    Friend WithEvents txtSearch As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents dgRooms As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents lblCount As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents colAction As DataGridViewTextBoxColumn
@@ -204,5 +189,6 @@ Partial Class CheckInOut
     Friend WithEvents colPrice As DataGridViewTextBoxColumn
     Friend WithEvents colCheckIn As DataGridViewTextBoxColumn
     Friend WithEvents colCheckOut As DataGridViewTextBoxColumn
+    Friend WithEvents SearchField1 As SearchField
 
 End Class

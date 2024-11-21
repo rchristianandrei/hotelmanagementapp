@@ -54,7 +54,7 @@ Partial Class SearchField
         ' 
         ' btnSearch
         ' 
-        btnSearch.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        btnSearch.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Right
         btnSearch.BackColor = Color.White
         btnSearch.BorderRadius = 10
         btnSearch.CustomizableEdges = CustomizableEdges3
@@ -62,7 +62,7 @@ Partial Class SearchField
         btnSearch.DisabledState.CustomBorderColor = Color.DarkGray
         btnSearch.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnSearch.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btnSearch.FillColor = Color.Fuchsia
+        btnSearch.FillColor = Color.Orchid
         btnSearch.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnSearch.ForeColor = Color.White
         btnSearch.Location = New Point(527, 3)

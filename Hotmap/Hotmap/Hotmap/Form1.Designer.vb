@@ -29,6 +29,7 @@ Partial Class Form1
         tcArea = New TabControl()
         ctmTab = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         miCloseTab = New ToolStripMenuItem()
+        miManageUsers = New ToolStripMenuItem()
         msSystemAdmin.SuspendLayout()
         ctmTab.SuspendLayout()
         SuspendLayout()
@@ -50,7 +51,7 @@ Partial Class Form1
         ' 
         ' SystemAdminToolStripMenuItem
         ' 
-        SystemAdminToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {miManageRooms})
+        SystemAdminToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {miManageRooms, miManageUsers})
         SystemAdminToolStripMenuItem.Name = "SystemAdminToolStripMenuItem"
         SystemAdminToolStripMenuItem.Size = New Size(96, 20)
         SystemAdminToolStripMenuItem.Text = "System Admin"
@@ -58,7 +59,7 @@ Partial Class Form1
         ' miManageRooms
         ' 
         miManageRooms.Name = "miManageRooms"
-        miManageRooms.Size = New Size(157, 22)
+        miManageRooms.Size = New Size(180, 22)
         miManageRooms.Text = "Manage Rooms"
         ' 
         ' tcArea
@@ -92,6 +93,12 @@ Partial Class Form1
         miCloseTab.Size = New Size(145, 22)
         miCloseTab.Text = "Close Feature"
         ' 
+        ' miManageUsers
+        ' 
+        miManageUsers.Name = "miManageUsers"
+        miManageUsers.Size = New Size(180, 22)
+        miManageUsers.Text = "Manage Users"
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -117,5 +124,6 @@ Partial Class Form1
     Friend WithEvents ctmTab As Guna.UI2.WinForms.Guna2ContextMenuStrip
     Friend WithEvents miCloseTab As ToolStripMenuItem
     Friend WithEvents miCheckInOut As ToolStripMenuItem
+    Friend WithEvents miManageUsers As ToolStripMenuItem
 
 End Class

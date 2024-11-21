@@ -13,6 +13,10 @@
         If Me.OpenFeature("Manage Rooms", New ManageRooms, Me.miManageRooms) Then Return
     End Sub
 
+    Private Sub miManageUsers_Click(sender As Object, e As EventArgs) Handles miManageUsers.Click
+        If Me.OpenFeature("Manage Users", New ManageUsers, Me.miManageUsers) Then Return
+    End Sub
+
     Private Sub miCloseTab_Click(sender As Object, e As EventArgs) Handles miCloseTab.Click
         Dim tab = Me.tcArea.SelectedTab
         Me.tcArea.TabPages.Remove(tab)

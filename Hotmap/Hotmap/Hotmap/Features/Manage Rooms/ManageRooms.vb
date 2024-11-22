@@ -28,6 +28,10 @@
         Await Me.LoadRooms()
     End Sub
 
+    Private Async Sub txtSearch_Search() Handles txtSearch.Search
+        Await Me.LoadRooms()
+    End Sub
+
     Private Sub btnAdd_Click() Handles btnAdd.Click
         Dim addRoom As New AddRoom
         AddHandler addRoom.Closing, Async Sub() Await Me.LoadRooms()
@@ -66,7 +70,7 @@
 #Region "Private Methods"
     Private Async Function LoadRooms() As Task
         Try
-            Dim rooms = Await Me.roomsRepo.Get1000()
+            Dim rooms = Await Me.roomsRepo.Get1000(Me.txtSearch.Text)
 
             Me.rooms.Clear()
             Me.dgRooms.Rows.Clear()

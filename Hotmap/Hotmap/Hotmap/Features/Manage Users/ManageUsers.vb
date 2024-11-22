@@ -22,6 +22,10 @@
         Await Me.LoadData
     End Sub
 
+    Private Async Sub txtSearch_Search() Handles txtSearch.Search
+        Await Me.LoadData
+    End Sub
+
     Private Sub btnAdd_Click() Handles btnAdd.Click
         Dim addRoom As New AddUser
         AddHandler addRoom.Closing, Async Sub() Await Me.LoadData()
@@ -61,7 +65,7 @@
 #Region "Private Method"
     Private Async Function LoadData() As Task
         Try
-            Dim users = Await Me.usersRepo.Get1000
+            Dim users = Await Me.usersRepo.Get1000(Me.txtSearch.Text)
 
             Me.users.Clear()
             Me.dgUsers.Rows.Clear()

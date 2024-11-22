@@ -8,10 +8,19 @@
             Me.txtSearch.PlaceholderText = value
         End Set
     End Property
+
+    Public Shadows Property Text() As String
+        Get
+            Return Me.txtSearch.Text
+        End Get
+        Set(ByVal value As String)
+            Me.txtSearch.Text = value
+        End Set
+    End Property
 #End Region
 
 #Region "Events"
-    Public Event Search(value As String)
+    Public Event Search()
 #End Region
 
     Public Sub New()
@@ -25,11 +34,11 @@
 
 #Region "Event Handlers"
     Private Sub txtSearch_KeyDown(sender As Object, e As KeyEventArgs) Handles txtSearch.KeyDown
-        If e.KeyValue = Keys.Enter Then RaiseEvent Search(Me.txtSearch.Text)
+        If e.KeyValue = Keys.Enter Then RaiseEvent Search()
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
-        RaiseEvent Search(Me.txtSearch.Text)
+        RaiseEvent Search()
     End Sub
 #End Region
 End Class

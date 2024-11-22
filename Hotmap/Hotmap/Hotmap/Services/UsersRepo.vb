@@ -50,13 +50,15 @@ Public Class UsersRepo
 #End Region
 
 #Region "Read"
-    Public Async Function Get1000() As Task(Of List(Of UserModel))
+    Public Async Function Get1000(Optional keyword As String = "") As Task(Of List(Of UserModel))
         Dim query = $"SELECT `id`, `dFirstName`, `dLastName`, `dHireDate`, `tDateTimeAdded` 
                     FROM `tblusers`
+                    WHERE id LIKE @Keyword OR dFirstName LIKE @Keyword OR dLastName LIKE @Keyword OR dHireDate LIKE @Keyword
                     LIMIT 1000;"
         Dim list As New List(Of UserModel)
         Using conn As New MySqlConnection(Me.connectionString)
             Using command As New MySqlCommand(query, conn)
+                command.Parameters.AddWithValue("@Keyword", $"%{keyword}%")
                 Await conn.OpenAsync()
                 Using reader = Await command.ExecuteReaderAsync
                     While Await reader.ReadAsync

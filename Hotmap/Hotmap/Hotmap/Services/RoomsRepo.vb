@@ -18,59 +18,43 @@ Public Class RoomsRepo
             New MySqlParameter("@Type", room.Type),
             New MySqlParameter("@Price", room.Price)
         }
-        Dim exs = Await Task.Run(
-            Function()
-                Try
-                    Using conn As New MySqlConnection(Me.connectionString)
-                        Using command As New MySqlCommand(query, conn)
-                            command.Parameters.AddRange(parameters)
-                            conn.Open()
-                            Dim newID = command.ExecuteNonQuery
-                            If Not update Then room.ID = newID
-                        End Using
-                    End Using
-                    Return Nothing
-                Catch ex As Exception
-                    Return ex
-                End Try
-            End Function)
-        If exs IsNot Nothing Then Throw exs
+        Using conn As New MySqlConnection(Me.connectionString)
+            Using command As New MySqlCommand(query, conn)
+                command.Parameters.AddRange(parameters)
+                Await conn.OpenAsync()
+                Dim newID = Await command.ExecuteNonQueryAsync
+                If Not update Then room.ID = newID
+            End Using
+        End Using
     End Function
 #End Region
 
 #Region "Read"
-    Public Async Function Get1000() As Task(Of List(Of (RoomModel, DateTimeModel)))
+    Public Async Function Get1000(Optional keyword As String = "") As Task(Of List(Of (RoomModel, DateTimeModel)))
         Dim query = $"SELECT `id`, `dName`, `dType`, `dPrice`, `tDateTimeCreated`, `tDateTimeModified`
                         FROM `tblrooms`
+                        WHERE dName LIKE @Keyword OR dType LIKE @Keyword OR dPrice LIKE @Keyword
                         LIMIT 1000;"
         Dim dict As New List(Of (RoomModel, DateTimeModel))
-        Dim exs = Await Task.Run(
-            Function()
-                Try
-                    Using conn As New MySqlConnection(Me.connectionString)
-                        Using command As New MySqlCommand(query, conn)
-                            conn.Open()
-                            Using reader = command.ExecuteReader
-                                While reader.Read
-                                    dict.Add((New RoomModel With {
-                                        .ID = reader("id"),
-                                        .Name = reader("dName"),
-                                        .Type = reader("dType"),
-                                        .Price = reader("dPrice")
-                                    }, New DateTimeModel With {
-                                        .Created = reader("tDateTimeCreated"),
-                                        .Modified = reader("tDateTimeModified")
-                                    }))
-                                End While
-                            End Using
-                        End Using
-                    End Using
-                    Return Nothing
-                Catch ex As Exception
-                    Return ex
-                End Try
-            End Function)
-        If exs IsNot Nothing Then Throw exs
+        Using conn As New MySqlConnection(Me.connectionString)
+            Using command As New MySqlCommand(query, conn)
+                command.Parameters.AddWithValue("@Keyword", $"%{keyword}%")
+                Await conn.OpenAsync()
+                Using reader = Await command.ExecuteReaderAsync
+                    While Await reader.ReadAsync
+                        dict.Add((New RoomModel With {
+                            .ID = reader("id"),
+                            .Name = reader("dName"),
+                            .Type = reader("dType"),
+                            .Price = reader("dPrice")
+                        }, New DateTimeModel With {
+                            .Created = reader("tDateTimeCreated"),
+                            .Modified = reader("tDateTimeModified")
+                        }))
+                    End While
+                End Using
+            End Using
+        End Using
         Return dict
     End Function
 #End Region
@@ -78,21 +62,12 @@ Public Class RoomsRepo
 #Region "Delete"
     Public Async Function Delete(roomID As Integer) As Task
         Dim query = $"DELETE FROM `tblrooms` WHERE id = {roomID};"
-        Dim exs = Await Task.Run(
-            Function()
-                Try
-                    Using conn As New MySqlConnection(Me.connectionString)
-                        Using command As New MySqlCommand(query, conn)
-                            conn.Open()
-                            command.ExecuteNonQuery()
-                        End Using
-                    End Using
-                    Return Nothing
-                Catch ex As Exception
-                    Return ex
-                End Try
-            End Function)
-        If exs IsNot Nothing Then Throw exs
+        Using conn As New MySqlConnection(Me.connectionString)
+            Using command As New MySqlCommand(query, conn)
+                Await conn.OpenAsync()
+                Await command.ExecuteNonQueryAsync()
+            End Using
+        End Using
     End Function
 #End Region
 End Class

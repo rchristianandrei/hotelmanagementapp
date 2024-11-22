@@ -30,6 +30,10 @@
         Await Me.LoadData
     End Sub
 
+    Private Async Sub txtSearch_Search() Handles txtSearch.Search
+        Await Me.LoadData
+    End Sub
+
     Private Async Sub dgRooms_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgRooms.CellClick
         If e.RowIndex < 0 Then Return
 
@@ -77,7 +81,7 @@
 #Region "Private Methods"
     Private Async Function LoadData() As Task
         Try
-            Dim rooms = Await Me.roomsRepo.Get1000
+            Dim rooms = Await Me.roomsRepo.Get1000(Me.txtSearch.Text)
             Dim checkInOut = Await Me.checkInOutRepo.Get1000
 
             Me.checkInOut.Clear()

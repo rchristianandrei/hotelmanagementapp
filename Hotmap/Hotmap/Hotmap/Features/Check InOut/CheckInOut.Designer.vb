@@ -22,10 +22,10 @@ Partial Class CheckInOut
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As DataGridViewCellStyle = New DataGridViewCellStyle()
         dgRooms = New Guna.UI2.WinForms.Guna2DataGridView()
         colAction = New DataGridViewTextBoxColumn()
         colID = New DataGridViewTextBoxColumn()
@@ -35,7 +35,7 @@ Partial Class CheckInOut
         colCheckIn = New DataGridViewTextBoxColumn()
         colCheckOut = New DataGridViewTextBoxColumn()
         lblCount = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        SearchField1 = New SearchField()
+        txtSearch = New SearchField()
         CType(dgRooms, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -45,28 +45,28 @@ Partial Class CheckInOut
         dgRooms.AllowUserToDeleteRows = False
         dgRooms.AllowUserToResizeColumns = False
         dgRooms.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = Color.White
-        dgRooms.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.BackColor = Color.White
+        dgRooms.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
         dgRooms.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         dgRooms.BorderStyle = BorderStyle.FixedSingle
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = Color.Fuchsia
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle2.ForeColor = Color.White
-        DataGridViewCellStyle2.SelectionBackColor = Color.Fuchsia
-        DataGridViewCellStyle2.SelectionForeColor = Color.White
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
-        dgRooms.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = Color.Fuchsia
+        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle6.ForeColor = Color.White
+        DataGridViewCellStyle6.SelectionBackColor = Color.Fuchsia
+        DataGridViewCellStyle6.SelectionForeColor = Color.White
+        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.True
+        dgRooms.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
         dgRooms.ColumnHeadersHeight = 30
         dgRooms.Columns.AddRange(New DataGridViewColumn() {colAction, colID, colName, colType, colPrice, colCheckIn, colCheckOut})
-        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = Color.White
-        DataGridViewCellStyle4.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle4.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        DataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        DataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.False
-        dgRooms.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = Color.White
+        DataGridViewCellStyle8.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle8.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        DataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle8.WrapMode = DataGridViewTriState.False
+        dgRooms.DefaultCellStyle = DataGridViewCellStyle8
         dgRooms.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgRooms.Location = New Point(3, 45)
         dgRooms.Name = "dgRooms"
@@ -127,8 +127,8 @@ Partial Class CheckInOut
         ' 
         ' colPrice
         ' 
-        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleRight
-        colPrice.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleRight
+        colPrice.DefaultCellStyle = DataGridViewCellStyle7
         colPrice.DividerWidth = 1
         colPrice.HeaderText = "Price"
         colPrice.Name = "colPrice"
@@ -157,21 +157,21 @@ Partial Class CheckInOut
         lblCount.TabIndex = 4
         lblCount.Text = "Count: <b>0</b>"
         ' 
-        ' SearchField1
+        ' txtSearch
         ' 
-        SearchField1.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        SearchField1.BackColor = Color.Transparent
-        SearchField1.Location = New Point(3, 3)
-        SearchField1.Name = "SearchField1"
-        SearchField1.Placeholder = "Search Rooms..."
-        SearchField1.Size = New Size(983, 36)
-        SearchField1.TabIndex = 5
+        txtSearch.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        txtSearch.BackColor = Color.Transparent
+        txtSearch.Location = New Point(3, 3)
+        txtSearch.Name = "txtSearch"
+        txtSearch.Placeholder = "Search Rooms..."
+        txtSearch.Size = New Size(983, 36)
+        txtSearch.TabIndex = 5
         ' 
         ' CheckInOut
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        Controls.Add(SearchField1)
+        Controls.Add(txtSearch)
         Controls.Add(lblCount)
         Controls.Add(dgRooms)
         Name = "CheckInOut"
@@ -189,6 +189,6 @@ Partial Class CheckInOut
     Friend WithEvents colPrice As DataGridViewTextBoxColumn
     Friend WithEvents colCheckIn As DataGridViewTextBoxColumn
     Friend WithEvents colCheckOut As DataGridViewTextBoxColumn
-    Friend WithEvents SearchField1 As SearchField
+    Friend WithEvents txtSearch As SearchField
 
 End Class

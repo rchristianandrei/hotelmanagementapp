@@ -50,7 +50,7 @@
                         If Not res = vbYes Then Exit Select
 
                         Try
-                            Await Me.checkInOutRepo.Save(id, 8)
+                            Await Me.checkInOutRepo.HttpPost(id, 8)
 
                             Await Me.LoadData
 
@@ -65,7 +65,7 @@
                         If Not res = vbYes Then Exit Select
 
                         Try
-                            Await Me.checkInOutRepo.Delete(id)
+                            Await Me.checkInOutRepo.HttpDelete(id)
 
                             Await Me.LoadData
 
@@ -81,8 +81,8 @@
 #Region "Private Methods"
     Private Async Function LoadData() As Task
         Try
-            Dim rooms = Await Me.roomsRepo.Get1000(Me.txtSearch.Text)
-            Dim checkInOut = Await Me.checkInOutRepo.Get1000
+            Dim rooms = Await Me.roomsRepo.HttpGet1000(Me.txtSearch.Text)
+            Dim checkInOut = Await Me.checkInOutRepo.HttpGet1000
 
             Me.checkInOut.Clear()
             For Each check In checkInOut

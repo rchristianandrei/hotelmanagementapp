@@ -56,13 +56,12 @@ Public Class RoomsRepo
         Dim list As New List(Of (RoomModel, DateTimeModel))
 
         For Each item In array.AsArray
-            Dim room = New RoomModel With {
+            list.Add((New RoomModel With {
                 .ID = item("id").ToString,
                 .Name = item("dName").ToString,
                 .Type = item("dType").ToString,
                 .Price = Double.Parse(item("dPrice").ToString())
-            }
-            list.Add((room, New DateTimeModel With {
+            }, New DateTimeModel With {
                 .Created = item("tDateTimeCreated"),
                 .Modified = item("tDateTimeModified")
             }))
@@ -71,33 +70,33 @@ Public Class RoomsRepo
         Return list
     End Function
 
-    Public Async Function Get1000(Optional keyword As String = "") As Task(Of List(Of (RoomModel, DateTimeModel)))
-        Dim query = $"SELECT `id`, `dName`, `dType`, `dPrice`, `tDateTimeCreated`, `tDateTimeModified`
-                        FROM `tblrooms`
-                        WHERE dName LIKE @Keyword OR dType LIKE @Keyword OR dPrice LIKE @Keyword
-                        LIMIT 1000;"
-        Dim dict As New List(Of (RoomModel, DateTimeModel))
-        Using conn As New MySqlConnection(Me.connectionString)
-            Using command As New MySqlCommand(query, conn)
-                command.Parameters.AddWithValue("@Keyword", $"%{keyword}%")
-                Await conn.OpenAsync()
-                Using reader = Await command.ExecuteReaderAsync
-                    While Await reader.ReadAsync
-                        dict.Add((New RoomModel With {
-                            .ID = reader("id"),
-                            .Name = reader("dName"),
-                            .Type = reader("dType"),
-                            .Price = reader("dPrice")
-                        }, New DateTimeModel With {
-                            .Created = reader("tDateTimeCreated"),
-                            .Modified = reader("tDateTimeModified")
-                        }))
-                    End While
-                End Using
-            End Using
-        End Using
-        Return dict
-    End Function
+    'Public Async Function Get1000(Optional keyword As String = "") As Task(Of List(Of (RoomModel, DateTimeModel)))
+    '    Dim query = $"SELECT `id`, `dName`, `dType`, `dPrice`, `tDateTimeCreated`, `tDateTimeModified`
+    '                    FROM `tblrooms`
+    '                    WHERE dName LIKE @Keyword OR dType LIKE @Keyword OR dPrice LIKE @Keyword
+    '                    LIMIT 1000;"
+    '    Dim dict As New List(Of (RoomModel, DateTimeModel))
+    '    Using conn As New MySqlConnection(Me.connectionString)
+    '        Using command As New MySqlCommand(query, conn)
+    '            command.Parameters.AddWithValue("@Keyword", $"%{keyword}%")
+    '            Await conn.OpenAsync()
+    '            Using reader = Await command.ExecuteReaderAsync
+    '                While Await reader.ReadAsync
+    '                    dict.Add((New RoomModel With {
+    '                        .ID = reader("id"),
+    '                        .Name = reader("dName"),
+    '                        .Type = reader("dType"),
+    '                        .Price = reader("dPrice")
+    '                    }, New DateTimeModel With {
+    '                        .Created = reader("tDateTimeCreated"),
+    '                        .Modified = reader("tDateTimeModified")
+    '                    }))
+    '                End While
+    '            End Using
+    '        End Using
+    '    End Using
+    '    Return dict
+    'End Function
 #End Region
 
 #Region "Delete"

@@ -50,7 +50,7 @@
                 If Not res = vbYes Then Exit Select
 
                 Try
-                    Await Me.roomsRepo.Delete(id)
+                    Await Me.roomsRepo.HttpDelete(id)
 
                     MessageBox.Show($"Successfully Deleted the Room!.", "Deleted Room", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Catch ex As Exception
@@ -70,7 +70,7 @@
 #Region "Private Methods"
     Private Async Function LoadRooms() As Task
         Try
-            Dim rooms = Await Me.roomsRepo.Get1000(Me.txtSearch.Text)
+            Dim rooms = Await Me.roomsRepo.HttpGet1000(Me.txtSearch.Text)
 
             Me.rooms.Clear()
             Me.dgRooms.Rows.Clear()

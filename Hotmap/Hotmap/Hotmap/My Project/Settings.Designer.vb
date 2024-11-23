@@ -62,6 +62,15 @@ Namespace My
                 Return CType(Me("MySQL"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("http://localhost:3000/api")>  _
+        Public ReadOnly Property HotelApi() As String
+            Get
+                Return CType(Me("HotelApi"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

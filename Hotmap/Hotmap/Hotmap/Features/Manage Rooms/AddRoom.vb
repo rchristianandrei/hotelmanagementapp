@@ -45,8 +45,7 @@
         Me.Room.Price = Double.Parse(String.Format("{0:F2}", price))
 
         Try
-            Await roomsRepo.Save(Room)
-
+            Dim res = Await Me.roomsRepo.HttpPost(Room)
             Me.txtName.Text = String.Empty
             Me.txtType.Text = String.Empty
             Me.txtPrice.Text = String.Empty

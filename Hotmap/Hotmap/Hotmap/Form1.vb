@@ -4,6 +4,14 @@
     Private ReadOnly tabToMenu As New Dictionary(Of TabPage, ToolStripMenuItem)
 #End Region
 
+    Public Sub New()
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+    End Sub
+
 #Region "Event Handlers"
     Private Sub miCheckInOut_Click(sender As Object, e As EventArgs) Handles miCheckInOut.Click
         If Me.OpenFeature("Check In / Out", New CheckInOut, Me.miCheckInOut) Then Return

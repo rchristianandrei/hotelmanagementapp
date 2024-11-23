@@ -5,5 +5,8 @@
     <Setting Name="MySQL" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Server=localhost;Port=3306;Database=hotmap;Uid=root;Pwd=admin1234;</Value>
     </Setting>
+    <Setting Name="HotelApi" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3000/api</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

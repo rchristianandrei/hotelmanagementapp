@@ -13,10 +13,11 @@ export class RoomsController {
     let query = `INSERT INTO tblrooms
                     (id, dName, dType, dPrice)
                 VALUES
-                    (${id}, ?, ?, ?)
+                    (??, ?, ?, ?)
                 ON DUPLICATE KEY UPDATE
                     dName = ?, dType = ?, dPrice = ?, tDateTimeModified = CURRENT_TIMESTAMP();`;
     let inserts = [
+      id,
       room.Name,
       room.Type,
       room.Price,
@@ -24,20 +25,15 @@ export class RoomsController {
       room.Type,
       room.Price,
     ];
-    console.log(room.Name);
-    console.log(room.Type);
-    console.log(room.Price);
     try {
       // Run the query to fetch all users
       const [rows] = await db.execute(query, inserts);
 
-      if (!rows) res.status(500).send("Something went wrong in the database.");
-
       // Respond with the users
       res.json(rows);
     } catch (err) {
-      console.error("Error fetching rooms:", err);
-      res.status(500).json({ message: "Error fetching rooms" });
+      console.error("Error saving room:", err);
+      res.status(500).send("Error saving room");
     }
   }
   // #endregion

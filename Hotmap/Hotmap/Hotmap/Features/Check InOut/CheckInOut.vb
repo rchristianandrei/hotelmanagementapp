@@ -101,7 +101,7 @@
 
                 Dim action = If(checkedIn, CheckOutMessage, CheckInMessage)
                 Dim checkIn As String = If(checkedIn, status.CheckIn.ToString, "Available")
-                Dim checkOut As String = If(checkedIn, status.CheckIn.ToString, "--------")
+                Dim checkOut As String = If(checkedIn, status.CheckOut.ToString, "--------")
                 Me.dgRooms.Rows.Add(action, room.ID, room.Name, room.Type, room.Price, checkIn, checkOut)
             Next
 

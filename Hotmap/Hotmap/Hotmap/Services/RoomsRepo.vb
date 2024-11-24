@@ -2,51 +2,34 @@
 Imports System.Text
 Imports System.Text.Json
 Imports System.Text.Json.Nodes
-Imports MySql.Data.MySqlClient
 
 Public Class RoomsRepo
-    Private ReadOnly connectionString = My.Settings.MySQL
-    Private ReadOnly url As String = My.Settings.HotelApi
+    Private ReadOnly url As String = My.Settings.HotelApi & "/rooms"
 
 #Region "Create / Update"
     Public Async Function HttpPost(room As RoomModel) As Task(Of String)
-        Dim apiUrl = Me.url & "/rooms"
+        Dim apiUrl = Me.url
         Dim json = JsonSerializer.Serialize(room)
+
         Dim content As New StringContent(json, Encoding.UTF8, "application/json")
-        Dim response As HttpResponseMessage = Await Http.HttpClient.PostAsync(apiUrl, content)
+
+        Dim request As New HttpRequestMessage(HttpMethod.Post, apiUrl)
+        request.Headers.Add("Authorization", Services.AuthToken)
+        request.Content = content
+
+        Dim response As HttpResponseMessage = Await Services.HttpClient.SendAsync(request)
         response.EnsureSuccessStatusCode()
         Return Await response.Content.ReadAsStringAsync()
     End Function
-
-    'Public Async Function Save(room As RoomModel) As Task
-    '    Dim update = room.ID > 0
-    '    Dim id As String = If(update, room.ID, "null")
-    '    Dim query = $"INSERT INTO `tblrooms`
-    '                    (`id`, `dName`, `dType`, `dPrice`)
-    '                VALUES
-    '                    ({id}, @Name, @Type, @Price)
-    '                ON DUPLICATE KEY UPDATE
-    '                    dName = @Name, dType = @Type, dPrice = @Price, tDateTimeModified = CURRENT_TIMESTAMP();"
-    '    Dim parameters As MySqlParameter() = {
-    '        New MySqlParameter("@Name", room.Name),
-    '        New MySqlParameter("@Type", room.Type),
-    '        New MySqlParameter("@Price", room.Price)
-    '    }
-    '    Using conn As New MySqlConnection(Me.connectionString)
-    '        Using command As New MySqlCommand(query, conn)
-    '            command.Parameters.AddRange(parameters)
-    '            Await conn.OpenAsync()
-    '            Dim newID = Await command.ExecuteNonQueryAsync
-    '            If Not update Then room.ID = newID
-    '        End Using
-    '    End Using
-    'End Function
 #End Region
 
 #Region "Read"
     Public Async Function HttpGet1000(Optional keyword As String = "") As Task(Of List(Of (RoomModel, DateTimeModel)))
-        Dim apiUrl = Me.url & "/rooms/" & keyword
-        Dim response = Await Http.HttpClient.GetAsync(apiUrl)
+        Dim apiUrl = Me.url & "/" & keyword
+        Dim request As New HttpRequestMessage(HttpMethod.Get, apiUrl)
+        request.Headers.Add("Authorization", Services.AuthToken)
+
+        Dim response = Await Services.HttpClient.SendAsync(request)
         response.EnsureSuccessStatusCode()
 
         Dim content = Await response.Content.ReadAsStringAsync
@@ -69,52 +52,18 @@ Public Class RoomsRepo
 
         Return list
     End Function
-
-    'Public Async Function Get1000(Optional keyword As String = "") As Task(Of List(Of (RoomModel, DateTimeModel)))
-    '    Dim query = $"SELECT `id`, `dName`, `dType`, `dPrice`, `tDateTimeCreated`, `tDateTimeModified`
-    '                    FROM `tblrooms`
-    '                    WHERE dName LIKE @Keyword OR dType LIKE @Keyword OR dPrice LIKE @Keyword
-    '                    LIMIT 1000;"
-    '    Dim dict As New List(Of (RoomModel, DateTimeModel))
-    '    Using conn As New MySqlConnection(Me.connectionString)
-    '        Using command As New MySqlCommand(query, conn)
-    '            command.Parameters.AddWithValue("@Keyword", $"%{keyword}%")
-    '            Await conn.OpenAsync()
-    '            Using reader = Await command.ExecuteReaderAsync
-    '                While Await reader.ReadAsync
-    '                    dict.Add((New RoomModel With {
-    '                        .ID = reader("id"),
-    '                        .Name = reader("dName"),
-    '                        .Type = reader("dType"),
-    '                        .Price = reader("dPrice")
-    '                    }, New DateTimeModel With {
-    '                        .Created = reader("tDateTimeCreated"),
-    '                        .Modified = reader("tDateTimeModified")
-    '                    }))
-    '                End While
-    '            End Using
-    '        End Using
-    '    End Using
-    '    Return dict
-    'End Function
 #End Region
 
 #Region "Delete"
     Public Async Function HttpDelete(roomID As Integer) As Task(Of String)
-        Dim apiUrl = Me.url & "/rooms/" & roomID
-        Dim response = Await Http.HttpClient.DeleteAsync(apiUrl)
+        Dim apiUrl = Me.url & "/" & roomID
+        Dim request As New HttpRequestMessage(HttpMethod.Delete, apiUrl)
+        request.Headers.Add("Authorization", Services.AuthToken)
+
+        Dim response = Await Services.HttpClient.SendAsync(request)
         response.EnsureSuccessStatusCode()
         Return Await response.Content.ReadAsStringAsync()
     End Function
 
-    'Public Async Function Delete(roomID As Integer) As Task
-    '    Dim query = $"DELETE FROM `tblrooms` WHERE id = {roomID};"
-    '    Using conn As New MySqlConnection(Me.connectionString)
-    '        Using command As New MySqlCommand(query, conn)
-    '            Await conn.OpenAsync()
-    '            Await command.ExecuteNonQueryAsync()
-    '        End Using
-    '    End Using
-    'End Function
 #End Region
 End Class

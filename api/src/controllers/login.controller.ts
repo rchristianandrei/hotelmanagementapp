@@ -9,6 +9,11 @@ export class LoginController {
   static async GenJWT(req: Request, res: Response) {
     const login: LoginModel = req.body;
 
+    if (!login.id || !login.password) {
+      res.status(400).send("Invalid Credentials");
+      return;
+    }
+
     let query = `SELECT id FROM tblusers WHERE id = ? AND dPassword = ?;`;
     let inserts = [login.id, login.password];
     try {
@@ -30,7 +35,7 @@ export class LoginController {
       });
 
       // Respond with the users
-      res.json(token);
+      res.status(200).send(token);
     } catch (err) {
       console.error("Error creating token:", err);
       res.status(500).send("Error creating token");

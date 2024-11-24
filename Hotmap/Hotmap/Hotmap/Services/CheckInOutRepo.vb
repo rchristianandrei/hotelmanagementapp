@@ -1,7 +1,4 @@
-﻿Imports System.Net.Http
-Imports System.Text
-Imports System.Text.Json
-Imports System.Text.Json.Nodes
+﻿Imports System.Text.Json.Nodes
 Imports MySql.Data.MySqlClient
 
 Public Class CheckInOutRepo
@@ -11,7 +8,7 @@ Public Class CheckInOutRepo
 #Region "Create / Update"
     Public Async Function HttpPost(roomId As Integer, hour As Integer) As Task(Of String)
         Dim apiUrl = Me.url & $"/{roomId}/{hour}"
-        Dim response = Await Http.HttpClient.PostAsync(apiUrl, Nothing)
+        Dim response = Await Services.HttpClient.PostAsync(apiUrl, Nothing)
         response.EnsureSuccessStatusCode()
         Return Await response.Content.ReadAsStringAsync()
     End Function
@@ -30,7 +27,7 @@ Public Class CheckInOutRepo
 
 #Region "Read"
     Public Async Function HttpGet1000() As Task(Of List(Of CheckInOutModel))
-        Dim response = Await Http.HttpClient.GetAsync(Me.url)
+        Dim response = Await Services.HttpClient.GetAsync(Me.url)
         response.EnsureSuccessStatusCode()
 
         Dim content = Await response.Content.ReadAsStringAsync
@@ -76,7 +73,7 @@ Public Class CheckInOutRepo
 #Region "Delete"
     Public Async Function HttpDelete(roomID As Integer) As Task(Of String)
         Dim apiUrl = Me.url & $"/{roomID}"
-        Dim response = Await Http.HttpClient.DeleteAsync(apiUrl)
+        Dim response = Await Services.HttpClient.DeleteAsync(apiUrl)
         response.EnsureSuccessStatusCode()
         Return Await response.Content.ReadAsStringAsync()
     End Function

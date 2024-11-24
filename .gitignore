@@ -400,3 +400,4 @@ FodyWeavers.xsd
 # API
 api/dist
 api/dist/*
+api/*.env

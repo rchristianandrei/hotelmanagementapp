@@ -13,11 +13,10 @@ export class RoomsController {
     let query = `INSERT INTO tblrooms
                     (id, dName, dType, dPrice)
                 VALUES
-                    (??, ?, ?, ?)
+                    (${id}, ?, ?, ?)
                 ON DUPLICATE KEY UPDATE
                     dName = ?, dType = ?, dPrice = ?, tDateTimeModified = CURRENT_TIMESTAMP();`;
     let inserts = [
-      id,
       room.Name,
       room.Type,
       room.Price,

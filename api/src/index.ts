@@ -1,6 +1,10 @@
-import express, { Request, Response } from "express";
-import checkInOut from "./routes/checkInOut.routes";
+import dotenv from "dotenv";
+import express from "express";
+import loginRoutes from "./routes/login.routes";
+import checkInOutRoutes from "./routes/checkInOut.routes";
 import roomsRoutes from "./routes/rooms.routes";
+
+dotenv.config();
 
 const app = express();
 
@@ -10,7 +14,8 @@ const PORT = 3000;
 app.use(express.json());
 
 // Routes
-app.use("/api/checkInOut", checkInOut);
+app.use("/api/auth", loginRoutes);
+app.use("/api/checkInOut", checkInOutRoutes);
 app.use("/api/rooms", roomsRoutes);
 
 app.listen(PORT, () => {

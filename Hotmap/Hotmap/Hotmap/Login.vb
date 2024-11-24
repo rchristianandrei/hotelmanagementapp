@@ -6,7 +6,7 @@
 
             Await Me.loginRepo.Login(Me.txtUserId.Text, Me.txtPassword.Text)
 
-            Form1.Show()
+            Main.Show()
             Me.Close()
         Catch ex As Exception
             MessageBox.Show("Please make sure the credentials are correct and you're connected to the internet", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)

@@ -27,9 +27,9 @@
     End Sub
 
     Private Sub btnAdd_Click() Handles btnAdd.Click
-        Dim addRoom As New AddUser
-        AddHandler addRoom.Closing, Async Sub() Await Me.LoadData()
-        addRoom.ShowDialog(Me.ParentForm)
+        Dim addUser As New AddUser
+        AddHandler addUser.Closing, Async Sub() Await Me.LoadData()
+        addUser.ShowDialog(Me.ParentForm)
     End Sub
 
     Private Async Sub dgUsers_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgUsers.CellClick
@@ -44,7 +44,7 @@
                 If Not res = vbYes Then Exit Select
 
                 Try
-                    Await Me.usersRepo.Delete(id)
+                    Await Me.usersRepo.HttpDelete(id)
 
                     Await Me.LoadData
 
@@ -65,7 +65,7 @@
 #Region "Private Method"
     Private Async Function LoadData() As Task
         Try
-            Dim users = Await Me.usersRepo.Get1000(Me.txtSearch.Text)
+            Dim users = Await Me.usersRepo.HttpGet1000(Me.txtSearch.Text)
 
             Me.users.Clear()
             Me.dgUsers.Rows.Clear()

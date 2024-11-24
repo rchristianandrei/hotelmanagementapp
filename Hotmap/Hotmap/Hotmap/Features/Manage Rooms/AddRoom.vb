@@ -51,6 +51,8 @@
             Me.txtPrice.Text = String.Empty
 
             MessageBox.Show("Successfully saved room!", "Saved Room", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            Me.Close()
         Catch ex As Exception
             MessageBox.Show($"Something went wrong.{vbCrLf}Please try again later.", "Unable to Save Room", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try

@@ -30,8 +30,6 @@ Partial Class AddUser
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         btnSave = New Guna.UI2.WinForms.Guna2Button()
         lblHireDate = New Guna.UI2.WinForms.Guna2HtmlLabel()
         lblLastName = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -40,7 +38,7 @@ Partial Class AddUser
         txtFirstName = New Guna.UI2.WinForms.Guna2TextBox()
         lblEID = New Guna.UI2.WinForms.Guna2HtmlLabel()
         txtEID = New Guna.UI2.WinForms.Guna2TextBox()
-        dtpHireDate = New Guna.UI2.WinForms.Guna2DateTimePicker()
+        dtpHireDate = New DateTimePicker()
         SuspendLayout()
         ' 
         ' btnSave
@@ -178,22 +176,15 @@ Partial Class AddUser
         ' 
         ' dtpHireDate
         ' 
-        dtpHireDate.Checked = True
-        dtpHireDate.CustomizableEdges = CustomizableEdges9
-        dtpHireDate.FillColor = Color.White
-        dtpHireDate.Font = New Font("Segoe UI", 9F)
-        dtpHireDate.Format = DateTimePickerFormat.Short
         dtpHireDate.Location = New Point(131, 156)
-        dtpHireDate.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
-        dtpHireDate.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        dtpHireDate.MinimumSize = New Size(200, 36)
         dtpHireDate.Name = "dtpHireDate"
-        dtpHireDate.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         dtpHireDate.Size = New Size(200, 36)
         dtpHireDate.TabIndex = 3
-        dtpHireDate.Value = New Date(2024, 11, 21, 23, 56, 36, 398)
         ' 
         ' AddUser
         ' 
+        AcceptButton = btnSave
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(383, 265)
@@ -206,6 +197,7 @@ Partial Class AddUser
         Controls.Add(txtLastName)
         Controls.Add(lblFirstName)
         Controls.Add(txtFirstName)
+        DoubleBuffered = True
         FormBorderStyle = FormBorderStyle.FixedDialog
         MaximizeBox = False
         Name = "AddUser"
@@ -223,5 +215,5 @@ Partial Class AddUser
     Friend WithEvents txtFirstName As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lblEID As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents txtEID As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents dtpHireDate As Guna.UI2.WinForms.Guna2DateTimePicker
+    Friend WithEvents dtpHireDate As DateTimePicker
 End Class

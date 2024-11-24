@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form1
+Partial Class Main
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -26,10 +26,10 @@ Partial Class Form1
         miCheckInOut = New ToolStripMenuItem()
         SystemAdminToolStripMenuItem = New ToolStripMenuItem()
         miManageRooms = New ToolStripMenuItem()
+        miManageUsers = New ToolStripMenuItem()
         tcArea = New TabControl()
         ctmTab = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         miCloseTab = New ToolStripMenuItem()
-        miManageUsers = New ToolStripMenuItem()
         msSystemAdmin.SuspendLayout()
         ctmTab.SuspendLayout()
         SuspendLayout()
@@ -59,8 +59,14 @@ Partial Class Form1
         ' miManageRooms
         ' 
         miManageRooms.Name = "miManageRooms"
-        miManageRooms.Size = New Size(180, 22)
+        miManageRooms.Size = New Size(157, 22)
         miManageRooms.Text = "Manage Rooms"
+        ' 
+        ' miManageUsers
+        ' 
+        miManageUsers.Name = "miManageUsers"
+        miManageUsers.Size = New Size(157, 22)
+        miManageUsers.Text = "Manage Users"
         ' 
         ' tcArea
         ' 
@@ -93,13 +99,7 @@ Partial Class Form1
         miCloseTab.Size = New Size(145, 22)
         miCloseTab.Text = "Close Feature"
         ' 
-        ' miManageUsers
-        ' 
-        miManageUsers.Name = "miManageUsers"
-        miManageUsers.Size = New Size(180, 22)
-        miManageUsers.Text = "Manage Users"
-        ' 
-        ' Form1
+        ' Main
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
@@ -107,7 +107,7 @@ Partial Class Form1
         Controls.Add(tcArea)
         Controls.Add(msSystemAdmin)
         MainMenuStrip = msSystemAdmin
-        Name = "Form1"
+        Name = "Main"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Hotmap"
         msSystemAdmin.ResumeLayout(False)

@@ -1,4 +1,4 @@
-﻿Public Class Form1
+﻿Public Class Main
 
 #Region "Fields"
     Private ReadOnly tabToMenu As New Dictionary(Of TabPage, ToolStripMenuItem)
@@ -54,5 +54,9 @@
 
         Return False
     End Function
+
+    Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Login.Show()
+    End Sub
 #End Region
 End Class

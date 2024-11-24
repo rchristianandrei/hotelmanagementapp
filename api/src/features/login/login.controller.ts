@@ -1,8 +1,8 @@
 require("dotenv").config();
 import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
-import db from "../database";
-import { LoginModel } from "../models/login.model";
+import db from "../../database";
+import { LoginModel } from "./login.model";
 
 export class LoginController {
   // #region Create / Update

@@ -22,6 +22,7 @@
         If Not Me.Visible Or Me.User Is Nothing Then Return
 
         Me.txtEID.Text = Me.User.EID
+        Me.txtEID.Enabled = False
         Me.txtFirstName.Text = Me.User.FirstName
         Me.txtLastName.Text = Me.User.LastName
         Me.dtpHireDate.Text = Me.User.HireDate
@@ -55,15 +56,16 @@
         Me.User.HireDate = Me.dtpHireDate.Value
 
         Try
-            Await Me.usersRepo.Save(Me.User)
+            Await Me.usersRepo.HttpPost(Me.User)
 
             Me.txtEID.Text = String.Empty
             Me.txtFirstName.Text = String.Empty
             Me.txtLastName.Text = String.Empty
 
             MessageBox.Show("Successfully saved user!", "Saved User", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            Me.Close()
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Unable to Save User", MessageBoxButtons.OK, MessageBoxIcon.Error)
             MessageBox.Show($"Something went wrong.{vbCrLf}Please try again later.", "Unable to Save User", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub

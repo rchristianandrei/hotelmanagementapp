@@ -64,6 +64,5 @@ Public Class RoomsRepo
         response.EnsureSuccessStatusCode()
         Return Await response.Content.ReadAsStringAsync()
     End Function
-
 #End Region
 End Class

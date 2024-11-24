@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { verifyToken } from "../middlewares/verification.middleware";
-import { CheckInOutController } from "../controllers/checkInOut.controller";
+import { verifyToken } from "../../middlewares/verification.middleware";
+import { CheckInOutController } from "./checkInOut.controller";
 
 const router: Router = Router();
 

@@ -49,6 +49,7 @@ Partial Class Login
         txtUserId.Font = New Font("Segoe UI", 9F)
         txtUserId.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         txtUserId.Location = New Point(59, 109)
+        txtUserId.MaxLength = 20
         txtUserId.Name = "txtUserId"
         txtUserId.PasswordChar = ChrW(0)
         txtUserId.PlaceholderText = ""
@@ -70,6 +71,7 @@ Partial Class Login
         txtPassword.Font = New Font("Segoe UI", 9F)
         txtPassword.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         txtPassword.Location = New Point(59, 190)
+        txtPassword.MaxLength = 45
         txtPassword.Name = "txtPassword"
         txtPassword.PasswordChar = ChrW(0)
         txtPassword.PlaceholderText = ""

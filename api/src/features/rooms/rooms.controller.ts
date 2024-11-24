@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import db from "../database";
-import { RoomModel } from "../models/room.model";
+import db from "../../database";
+import { RoomModel } from "./room.model";
 
 export class RoomsController {
   // #region Create / Update

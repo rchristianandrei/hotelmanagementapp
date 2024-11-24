@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { verifyToken } from "../middlewares/verification.middleware";
-import { RoomsController } from "../controllers/rooms.controller";
+import { verifyToken } from "../../middlewares/verification.middleware";
+import { RoomsController } from "./rooms.controller";
 
 const router: Router = Router();
 
@@ -18,10 +18,5 @@ router.get("/", verifyToken, RoomsController.Get1000);
 // #region Delete
 router.delete("/:id", verifyToken, RoomsController.Delete);
 // #endregion
-
-import { Request, Response } from "express";
-router.get("/get", (req: Request, res: Response) => {
-  res.status(200);
-});
 
 export default router;

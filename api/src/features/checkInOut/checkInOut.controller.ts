@@ -33,7 +33,7 @@ export class CheckInOutController {
 
   // #region Read
   static async Get1000(req: Request, res: Response) {
-    let query = `SELECT id, dCheckIn, dCheckOut 
+    let query = `SELECT id, date_add(dCheckIn, interval 8 hour) as dCheckIn, date_add(dCheckOut, interval 8 hour ) as dCheckOut
                 FROM tblCheckInOut
                 LIMIT 1000;`;
     try {
@@ -43,8 +43,8 @@ export class CheckInOutController {
       // Respond with the fetched rooms in JSON format
       res.status(200).json(rows);
     } catch (err) {
-      console.error("Error fetching rooms:", err);
-      res.status(500).json({ message: "Failed to retrieve rooms." });
+      console.error("Error fetching checkInOut:", err);
+      res.status(500).json({ message: "Failed to retrieve checkInOut." });
     }
   }
   // #endregion

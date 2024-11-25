@@ -5,6 +5,7 @@
 
     Private ReadOnly roomsRepo As New RoomsRepo
     Private ReadOnly checkInOutRepo As New CheckInOutRepo
+    Private ReadOnly recordsRepo As New RecordsRepo
 
     Private ReadOnly rooms As New Dictionary(Of Integer, RoomModel)
     Private ReadOnly checkInOut As New Dictionary(Of Integer, CheckInOutModel)
@@ -65,7 +66,11 @@
                         If Not res = vbYes Then Exit Select
 
                         Try
-                            Await Me.checkInOutRepo.HttpDelete(id)
+                            Dim del = Me.checkInOutRepo.HttpDelete(id)
+                            Dim save = Me.recordsRepo.HttpPost(New RecordModel With {.RoomID = id, .CheckIn = Me.checkInOut(id).CheckIn})
+
+                            Await del
+                            Await save
 
                             Await Me.LoadData
 

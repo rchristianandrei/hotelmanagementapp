@@ -1,6 +1,5 @@
 ﻿Imports System.Net.Http
 Imports System.Text.Json.Nodes
-Imports MySql.Data.MySqlClient
 
 Public Class CheckInOutRepo
     Private ReadOnly connectionString = My.Settings.MySQL

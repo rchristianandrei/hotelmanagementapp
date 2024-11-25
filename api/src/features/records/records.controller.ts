@@ -41,7 +41,7 @@ export class RecordsController {
 
       for (let i = 0; i < records.length; i++) {
         let record: RecordModel = records[i];
-        record.CheckIn.setHours(record.CheckIn.getHours() + 8);
+        record.CheckIn.setHours(record.CheckIn.getHours());
         record.CheckOut.setHours(record.CheckOut.getHours() + 8);
       }
 

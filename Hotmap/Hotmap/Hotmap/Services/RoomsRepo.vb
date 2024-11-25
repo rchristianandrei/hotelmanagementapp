@@ -52,30 +52,6 @@ Public Class RoomsRepo
 
         Return list
     End Function
-
-    Public Async Function HttpGet1(roomID As Integer) As Task(Of RoomModel)
-        Dim apiUrl = Me.url & "/" & roomID
-        Dim request As New HttpRequestMessage(HttpMethod.Get, apiUrl)
-        request.Headers.Add("Authorization", Services.AuthToken)
-
-        Dim response = Await Services.HttpClient.SendAsync(request)
-        response.EnsureSuccessStatusCode()
-
-        Dim content = Await response.Content.ReadAsStringAsync
-
-        Dim array = JsonNode.Parse(content)
-
-        Dim room As New RoomModel
-
-        For Each item In array.AsArray
-            room.ID = item("id")
-            room.Name = item("dName").ToString
-            room.Type = item("dType").ToString
-            room.Price = Double.Parse(item("dPrice").ToString())
-        Next
-
-        Return room
-    End Function
 #End Region
 
 #Region "Delete"

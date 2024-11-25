@@ -57,25 +57,6 @@ export class RoomsController {
       res.status(500).json({ message: "Failed to retrieve rooms." });
     }
   }
-
-  static async Get1(req: Request, res: Response) {
-    let roomID = req.params.id;
-
-    let query = `SELECT id, dName, dType, dPrice, tDateTimeCreated, tDateTimeModified 
-                FROM tblrooms 
-                WHERE id = ?;`;
-    let inserts = [roomID];
-    try {
-      // Query to fetch rooms from the database
-      const [rows] = await db.execute(query, inserts);
-
-      // Respond with the fetched rooms in JSON format
-      res.status(200).json(rows);
-    } catch (err) {
-      console.error("Error fetching rooms:", err);
-      res.status(500).json({ message: "Failed to retrieve rooms." });
-    }
-  }
   // #endregion
 
   // #region Delete

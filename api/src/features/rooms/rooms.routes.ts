@@ -12,7 +12,6 @@ router.post("/", verifyToken, RoomsController.Save);
 // #region Read
 router.get("/:keyword", verifyToken, RoomsController.Get1000);
 router.get("/", verifyToken, RoomsController.Get1000);
-router.get("/:id", verifyToken, RoomsController.Get1);
 // router.get('/:id', RoomsController.getUserById);
 // #endregion
 

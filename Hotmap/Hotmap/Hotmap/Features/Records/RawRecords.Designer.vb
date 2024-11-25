@@ -22,13 +22,15 @@ Partial Class RawRecords
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         btnRefresh = New Guna.UI2.WinForms.Guna2Button()
         lblCount = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -40,6 +42,7 @@ Partial Class RawRecords
         colPrice = New DataGridViewTextBoxColumn()
         colCheckIn = New DataGridViewTextBoxColumn()
         colCheckOut = New DataGridViewTextBoxColumn()
+        btnExport = New Guna.UI2.WinForms.Guna2Button()
         CType(dgRecords, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -59,7 +62,7 @@ Partial Class RawRecords
         ' 
         btnRefresh.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         btnRefresh.BorderRadius = 10
-        btnRefresh.CustomizableEdges = CustomizableEdges3
+        btnRefresh.CustomizableEdges = CustomizableEdges1
         btnRefresh.DisabledState.BorderColor = Color.DarkGray
         btnRefresh.DisabledState.CustomBorderColor = Color.DarkGray
         btnRefresh.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -69,7 +72,7 @@ Partial Class RawRecords
         btnRefresh.ForeColor = Color.White
         btnRefresh.Location = New Point(653, 3)
         btnRefresh.Name = "btnRefresh"
-        btnRefresh.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        btnRefresh.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         btnRefresh.Size = New Size(93, 36)
         btnRefresh.TabIndex = 14
         btnRefresh.Text = "Refresh"
@@ -90,28 +93,28 @@ Partial Class RawRecords
         dgRecords.AllowUserToDeleteRows = False
         dgRecords.AllowUserToResizeColumns = False
         dgRecords.AllowUserToResizeRows = False
-        DataGridViewCellStyle6.BackColor = Color.White
-        dgRecords.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle1.BackColor = Color.White
+        dgRecords.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         dgRecords.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         dgRecords.BorderStyle = BorderStyle.FixedSingle
-        DataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = Color.Fuchsia
-        DataGridViewCellStyle7.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle7.ForeColor = Color.White
-        DataGridViewCellStyle7.SelectionBackColor = Color.Fuchsia
-        DataGridViewCellStyle7.SelectionForeColor = Color.White
-        DataGridViewCellStyle7.WrapMode = DataGridViewTriState.True
-        dgRecords.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = Color.Fuchsia
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle2.ForeColor = Color.White
+        DataGridViewCellStyle2.SelectionBackColor = Color.Fuchsia
+        DataGridViewCellStyle2.SelectionForeColor = Color.White
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
+        dgRecords.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         dgRecords.ColumnHeadersHeight = 30
         dgRecords.Columns.AddRange(New DataGridViewColumn() {colID, colEdit, colName, colType, colPrice, colCheckIn, colCheckOut})
-        DataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = Color.White
-        DataGridViewCellStyle10.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle10.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        DataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        DataGridViewCellStyle10.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        DataGridViewCellStyle10.WrapMode = DataGridViewTriState.False
-        dgRecords.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = Color.White
+        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle5.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        DataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.False
+        dgRecords.DefaultCellStyle = DataGridViewCellStyle5
         dgRecords.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgRecords.Location = New Point(3, 45)
         dgRecords.Name = "dgRecords"
@@ -170,8 +173,8 @@ Partial Class RawRecords
         ' 
         ' colPrice
         ' 
-        DataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleRight
-        colPrice.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleRight
+        colPrice.DefaultCellStyle = DataGridViewCellStyle3
         colPrice.DividerWidth = 1
         colPrice.HeaderText = "Price"
         colPrice.Name = "colPrice"
@@ -179,8 +182,8 @@ Partial Class RawRecords
         ' 
         ' colCheckIn
         ' 
-        DataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter
-        colCheckIn.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
+        colCheckIn.DefaultCellStyle = DataGridViewCellStyle4
         colCheckIn.DividerWidth = 1
         colCheckIn.HeaderText = "Check In"
         colCheckIn.Name = "colCheckIn"
@@ -192,10 +195,32 @@ Partial Class RawRecords
         colCheckOut.Name = "colCheckOut"
         colCheckOut.ReadOnly = True
         ' 
+        ' btnExport
+        ' 
+        btnExport.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        btnExport.BorderColor = SystemColors.ControlText
+        btnExport.BorderRadius = 10
+        btnExport.BorderThickness = 1
+        btnExport.CustomizableEdges = CustomizableEdges3
+        btnExport.DisabledState.BorderColor = Color.DarkGray
+        btnExport.DisabledState.CustomBorderColor = Color.DarkGray
+        btnExport.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnExport.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnExport.FillColor = SystemColors.Control
+        btnExport.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnExport.ForeColor = SystemColors.ControlText
+        btnExport.Location = New Point(554, 3)
+        btnExport.Name = "btnExport"
+        btnExport.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        btnExport.Size = New Size(93, 36)
+        btnExport.TabIndex = 16
+        btnExport.Text = "Export CSV"
+        ' 
         ' RawRecords
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        Controls.Add(btnExport)
         Controls.Add(Guna2HtmlLabel1)
         Controls.Add(btnRefresh)
         Controls.Add(lblCount)
@@ -218,5 +243,6 @@ Partial Class RawRecords
     Friend WithEvents colPrice As DataGridViewTextBoxColumn
     Friend WithEvents colCheckIn As DataGridViewTextBoxColumn
     Friend WithEvents colCheckOut As DataGridViewTextBoxColumn
+    Public WithEvents btnExport As Guna.UI2.WinForms.Guna2Button
 
 End Class

@@ -24,19 +24,22 @@ Partial Class Main
     Private Sub InitializeComponent()
         msSystemAdmin = New MenuStrip()
         miCheckInOut = New ToolStripMenuItem()
+        ReportingToolStripMenuItem = New ToolStripMenuItem()
+        miRealtime = New ToolStripMenuItem()
         SystemAdminToolStripMenuItem = New ToolStripMenuItem()
         miManageRooms = New ToolStripMenuItem()
         miManageUsers = New ToolStripMenuItem()
         tcArea = New TabControl()
         ctmTab = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         miCloseTab = New ToolStripMenuItem()
+        miRawRecords = New ToolStripMenuItem()
         msSystemAdmin.SuspendLayout()
         ctmTab.SuspendLayout()
         SuspendLayout()
         ' 
         ' msSystemAdmin
         ' 
-        msSystemAdmin.Items.AddRange(New ToolStripItem() {miCheckInOut, SystemAdminToolStripMenuItem})
+        msSystemAdmin.Items.AddRange(New ToolStripItem() {miCheckInOut, ReportingToolStripMenuItem, SystemAdminToolStripMenuItem})
         msSystemAdmin.Location = New Point(0, 0)
         msSystemAdmin.Name = "msSystemAdmin"
         msSystemAdmin.Size = New Size(800, 24)
@@ -48,6 +51,19 @@ Partial Class Main
         miCheckInOut.Name = "miCheckInOut"
         miCheckInOut.Size = New Size(90, 20)
         miCheckInOut.Text = "Check In/Out"
+        ' 
+        ' ReportingToolStripMenuItem
+        ' 
+        ReportingToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {miRealtime, miRawRecords})
+        ReportingToolStripMenuItem.Name = "ReportingToolStripMenuItem"
+        ReportingToolStripMenuItem.Size = New Size(71, 20)
+        ReportingToolStripMenuItem.Text = "Reporting"
+        ' 
+        ' miRealtime
+        ' 
+        miRealtime.Name = "miRealtime"
+        miRealtime.Size = New Size(180, 22)
+        miRealtime.Text = "Realtime"
         ' 
         ' SystemAdminToolStripMenuItem
         ' 
@@ -99,6 +115,12 @@ Partial Class Main
         miCloseTab.Size = New Size(145, 22)
         miCloseTab.Text = "Close Feature"
         ' 
+        ' miRawRecords
+        ' 
+        miRawRecords.Name = "miRawRecords"
+        miRawRecords.Size = New Size(180, 22)
+        miRawRecords.Text = "Raw Records"
+        ' 
         ' Main
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -125,5 +147,8 @@ Partial Class Main
     Friend WithEvents miCloseTab As ToolStripMenuItem
     Friend WithEvents miCheckInOut As ToolStripMenuItem
     Friend WithEvents miManageUsers As ToolStripMenuItem
+    Friend WithEvents ReportingToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents miRealtime As ToolStripMenuItem
+    Friend WithEvents miRawRecords As ToolStripMenuItem
 
 End Class

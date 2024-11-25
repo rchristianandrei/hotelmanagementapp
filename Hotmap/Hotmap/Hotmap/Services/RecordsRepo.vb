@@ -1,5 +1,6 @@
 ﻿Imports System.Net.Http
 Imports System.Text
+Imports System.Text.Json
 Imports System.Text.Json.Nodes
 
 Public Class RecordsRepo
@@ -9,7 +10,7 @@ Public Class RecordsRepo
 #Region "Create / Update"
     Public Async Function HttpPost(record As RecordModel) As Task(Of String)
         Dim apiUrl = Me.url
-        Dim json = $"{{""roomID"": ""{record.RoomID}"", ""checkIn"": ""{record.CheckIn:yyyy-MM-dd HH:mm:ss}""}}"
+        Dim json = JsonSerializer.Serialize(record)
 
         Dim content As New StringContent(json, Encoding.UTF8, "application/json")
 
@@ -24,8 +25,8 @@ Public Class RecordsRepo
 #End Region
 
 #Region "Read"
-    Public Async Function HttpGet1000(Optional keyword As String = "") As Task(Of List(Of RecordModel))
-        Dim apiUrl = Me.url & "/" & keyword
+    Public Async Function HttpGet() As Task(Of List(Of RecordModel))
+        Dim apiUrl = Me.url
         Dim request As New HttpRequestMessage(HttpMethod.Get, apiUrl)
         request.Headers.Add("Authorization", Services.AuthToken)
 
@@ -42,12 +43,30 @@ Public Class RecordsRepo
             list.Add(New RecordModel With {
                  .ID = item("_id"),
                  .RoomID = item("RoomID"),
+                 .RoomName = item("RoomName"),
+                 .RoomType = item("RoomType"),
+                 .RoomPrice = item("RoomPrice"),
                  .CheckIn = item("CheckIn"),
                  .CheckOut = item("CheckOut")
             })
         Next
 
         Return list
+    End Function
+
+    Public Async Function HttpGetRoomCount(roomID As String) As Task(Of Integer)
+        Dim apiUrl = Me.url & "/" & roomID
+        Dim request As New HttpRequestMessage(HttpMethod.Get, apiUrl)
+        request.Headers.Add("Authorization", Services.AuthToken)
+
+        Dim response = Await Services.HttpClient.SendAsync(request)
+        response.EnsureSuccessStatusCode()
+
+        Dim content = Await response.Content.ReadAsStringAsync
+
+        Dim array = JsonNode.Parse(content)
+
+        Return array
     End Function
 #End Region
 End Class

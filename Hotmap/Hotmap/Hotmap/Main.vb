@@ -17,6 +17,14 @@
         If Me.OpenFeature("Check In / Out", New CheckInOut, Me.miCheckInOut) Then Return
     End Sub
 
+    Private Sub miRealtime_Click(sender As Object, e As EventArgs) Handles miRealtime.Click
+        If Me.OpenFeature("Realtime Reports", New RealtimeReports, Me.miRealtime) Then Return
+    End Sub
+
+    Private Sub miRawRecords_Click(sender As Object, e As EventArgs) Handles miRawRecords.Click
+        If Me.OpenFeature("Raw Reports", New RawRecords, Me.miRawRecords) Then Return
+    End Sub
+
     Private Sub miManageRooms_Click(sender As Object, e As EventArgs) Handles miManageRooms.Click
         If Me.OpenFeature("Manage Rooms", New ManageRooms, Me.miManageRooms) Then Return
     End Sub
@@ -29,6 +37,10 @@
         Dim tab = Me.tcArea.SelectedTab
         Me.tcArea.TabPages.Remove(tab)
         Me.tabToMenu(tab).Checked = False
+    End Sub
+
+    Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Login.Show()
     End Sub
 #End Region
 
@@ -54,9 +66,5 @@
 
         Return False
     End Function
-
-    Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        Login.Show()
-    End Sub
 #End Region
 End Class

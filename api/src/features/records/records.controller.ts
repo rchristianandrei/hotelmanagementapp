@@ -5,17 +5,20 @@ import Record, { RecordModel } from "./record.model";
 export class RecordsController {
   // #region Create / Update
   static async Save(req: Request, res: Response) {
-    let { roomID, checkIn } = req.body;
-    let checkOut = new Date();
-    if (!roomID || !checkIn) {
+    let temp: RecordModel = req.body;
+
+    if (!temp) {
       res.status(400).send("Invalid Parameters");
       return;
     }
 
     let record = new Record({
-      RoomID: roomID,
-      CheckIn: checkIn,
-      CheckOut: checkOut,
+      RoomID: temp.RoomID,
+      RoomName: temp.RoomName,
+      RoomType: temp.RoomType,
+      RoomPrice: temp.RoomPrice,
+      CheckIn: temp.CheckIn,
+      CheckOut: new Date(),
     });
 
     try {
@@ -32,7 +35,7 @@ export class RecordsController {
   // #endregion
 
   // #region Read
-  static async Get1000(req: Request, res: Response) {
+  static async Get(req: Request, res: Response) {
     try {
       let records = await Record.find();
 
@@ -41,6 +44,24 @@ export class RecordsController {
         record.CheckIn.setHours(record.CheckIn.getHours() + 8);
         record.CheckOut.setHours(record.CheckOut.getHours() + 8);
       }
+
+      res.status(200).json(records);
+    } catch (err) {
+      console.error("Error fetching records:", err);
+      res.status(500).json({ message: "Failed to retrieve records." });
+    }
+  }
+
+  static async GetRoomCount(req: Request, res: Response) {
+    let roomID = req.params.id;
+
+    if (!roomID) {
+      res.status(400).send("Invalid Parameters");
+      return;
+    }
+
+    try {
+      let records = await Record.countDocuments({ RoomID: roomID });
 
       res.status(200).json(records);
     } catch (err) {

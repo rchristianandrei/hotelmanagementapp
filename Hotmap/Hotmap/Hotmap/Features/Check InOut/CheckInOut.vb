@@ -66,8 +66,16 @@
                         If Not res = vbYes Then Exit Select
 
                         Try
+                            Dim room = Me.rooms(id)
+                            Dim record As New RecordModel With {
+                                .RoomID = id,
+                                .RoomName = room.Name,
+                                .RoomType = room.Type,
+                                .RoomPrice = room.Price,
+                                .CheckIn = Me.checkInOut(id).CheckIn
+                            }
                             Dim del = Me.checkInOutRepo.HttpDelete(id)
-                            Dim save = Me.recordsRepo.HttpPost(New RecordModel With {.RoomID = id, .CheckIn = Me.checkInOut(id).CheckIn})
+                            Dim save = Me.recordsRepo.HttpPost(record)
 
                             Await del
                             Await save

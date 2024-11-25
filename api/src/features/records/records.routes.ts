@@ -9,7 +9,8 @@ router.post("/", verifyToken, RecordsController.Save);
 // #endregion
 
 // #region Read
-router.get("/", verifyToken, RecordsController.Get1000);
+router.get("/", verifyToken, RecordsController.Get);
+router.get("/:id", verifyToken, RecordsController.GetRoomCount);
 // #endregion
 
 export default router;

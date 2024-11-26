@@ -22,12 +22,12 @@ Partial Class Login
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         txtUserId = New Guna.UI2.WinForms.Guna2TextBox()
         txtPassword = New Guna.UI2.WinForms.Guna2TextBox()
         btnLogin = New Guna.UI2.WinForms.Guna2Button()
@@ -39,7 +39,7 @@ Partial Class Login
         ' txtUserId
         ' 
         txtUserId.BorderRadius = 6
-        txtUserId.CustomizableEdges = CustomizableEdges1
+        txtUserId.CustomizableEdges = CustomizableEdges7
         txtUserId.DefaultText = "2024-12345"
         txtUserId.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txtUserId.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -54,14 +54,14 @@ Partial Class Login
         txtUserId.PasswordChar = ChrW(0)
         txtUserId.PlaceholderText = ""
         txtUserId.SelectedText = ""
-        txtUserId.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        txtUserId.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         txtUserId.Size = New Size(200, 36)
         txtUserId.TabIndex = 0
         ' 
         ' txtPassword
         ' 
         txtPassword.BorderRadius = 6
-        txtPassword.CustomizableEdges = CustomizableEdges3
+        txtPassword.CustomizableEdges = CustomizableEdges9
         txtPassword.DefaultText = "user1234"
         txtPassword.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txtPassword.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -73,10 +73,10 @@ Partial Class Login
         txtPassword.Location = New Point(59, 190)
         txtPassword.MaxLength = 45
         txtPassword.Name = "txtPassword"
-        txtPassword.PasswordChar = ChrW(0)
+        txtPassword.PasswordChar = "●"c
         txtPassword.PlaceholderText = ""
         txtPassword.SelectedText = ""
-        txtPassword.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        txtPassword.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         txtPassword.Size = New Size(200, 36)
         txtPassword.TabIndex = 1
         ' 
@@ -84,7 +84,7 @@ Partial Class Login
         ' 
         btnLogin.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         btnLogin.BorderRadius = 10
-        btnLogin.CustomizableEdges = CustomizableEdges5
+        btnLogin.CustomizableEdges = CustomizableEdges11
         btnLogin.DisabledState.BorderColor = Color.DarkGray
         btnLogin.DisabledState.CustomBorderColor = Color.DarkGray
         btnLogin.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -94,7 +94,7 @@ Partial Class Login
         btnLogin.ForeColor = Color.White
         btnLogin.Location = New Point(113, 255)
         btnLogin.Name = "btnLogin"
-        btnLogin.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        btnLogin.ShadowDecoration.CustomizableEdges = CustomizableEdges12
         btnLogin.Size = New Size(93, 36)
         btnLogin.TabIndex = 8
         btnLogin.Text = "Login"
